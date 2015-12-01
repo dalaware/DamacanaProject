@@ -75,5 +75,12 @@ namespace DamacanaWeb.Controllers
 
             return View();
         }
+
+        public ActionResult Bag()
+        {
+            ViewBag.Message = "Your bag page.";
+
+            return View();
+        }
     }
 }

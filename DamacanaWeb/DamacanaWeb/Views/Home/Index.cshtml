@@ -8,19 +8,39 @@
 
 @using (Html.BeginForm("AddProduct", "Home", FormMethod.Post))
 {
-
     <button type="submit" class="btn btn-default">Add New Potion</button>
+    <br />
+    <br />
 }
 
 
-@foreach (Product p in Model)   
+@foreach (Product p in Model)
 {
-    <h2>
-        @p.Name (@p.Id)
-    </h2>
-    <p>
-        @p.Price
-    </p>
     <hr />
+    <tr>
+        <td>
+            <img style="float:left" src="http://i.ebayimg.com/00/s/MzAwWDMwMA==/z/D24AAOSw1vlUyKZ2/$_3.JPG?set_id=2" height="42" width="42">
+        </td>
+        <td>
+            <h4>
+                @p.Name (@p.Id)
+            </h4>
+
+            <p>
+                @p.Price
+            </p>
+        </td>
+    </tr>
+    <div style="float:right">
+        @Html.ActionLink("Add To Bag", "AddToBag", new { id = p.Id }) |
+
+        @Html.ActionLink("Edit", "Edit", new { id = p.Id }) |
+
+        @Html.ActionLink("Delete", "Delete", new { id = p.Id })
+
+    </div>
+    <br />
+
+
 }
 
