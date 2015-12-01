@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DamacanaWeb.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,7 +11,36 @@ namespace DamacanaWeb.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            //Create an instance of product
+            Product product1 = new Product()
+            {
+                Id = 1,
+                Name = "Potion of Invisibility",
+                Price = (decimal) 4.90
+            };
+
+            Product product2 = new Product()
+            {
+                Id = 1,
+                Name = "Potion of Increased Magicka",
+                Price = (decimal)4.90
+            };
+
+            Product product3 = new Product()
+            {
+                Id = 1,
+                Name = "Potion of Cure Disease",
+                Price = (decimal)4.90
+            };
+
+
+            List<Product> products = new List<Product>();
+            products.Add(product1);
+            products.Add(product2);
+            products.Add(product3);
+
+            //Send product to view engine
+            return View(products);
         }
 
         public ActionResult About()
