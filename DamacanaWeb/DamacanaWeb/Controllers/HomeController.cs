@@ -43,6 +43,13 @@ namespace DamacanaWeb.Controllers
             return View(products);
         }
 
+        [HttpPost]
+        public ActionResult AddProduct(Product product)
+        {
+            ViewBag.Message = "Welcome to my secret shop";
+            return View(product);
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
