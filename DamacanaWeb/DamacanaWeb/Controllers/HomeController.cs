@@ -44,9 +44,21 @@ namespace DamacanaWeb.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddProduct(Product product)
+        public ActionResult AddProduct()
         {
-            ViewBag.Message = "Welcome to my secret shop";
+            Product product = new Product()
+            {
+                Name = "",
+                Price = (decimal)0
+            };
+
+            return View(product);
+        }
+
+        public ActionResult SaveProduct(Product product)
+        {
+            ViewBag.Message = "SaveProduct worked sir...";
+            
             return View(product);
         }
 
