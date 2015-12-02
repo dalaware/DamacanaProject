@@ -8,7 +8,7 @@
 
 @using (Html.BeginForm("AddProduct", "Home", FormMethod.Post))
 {
-    <button type="submit" class="btn btn-default">Add New Potion</button>
+    <button type="submit" class="btn btn-warning">Add New Potion</button>
     <br />
     <br />
 }
@@ -19,12 +19,12 @@
     <hr />
     <tr>
         <td>
-            <img style="float:left" src="http://i.ebayimg.com/00/s/MzAwWDMwMA==/z/D24AAOSw1vlUyKZ2/$_3.JPG?set_id=2" height="42" width="42">
+            <img style="float:left;margin-right:10px" src="http://vignette1.wikia.nocookie.net/herebemonsters/images/4/48/Four_hour_potion.png/revision/latest?cb=20130729132335" height="60" width="50">
         </td>
         <td>
-            <h4>
-                @p.Name (@p.Id)
-            </h4>
+            <h4><b>
+                 @p.Name (@p.Id)
+            </b></h4>
 
             <p>
                 @p.Price
@@ -34,13 +34,19 @@
     <div style="float:right">
         @Html.ActionLink("Add To Bag", "AddToBag", new { id = p.Id }) |
 
-        @Html.ActionLink("Edit", "Edit", new { id = p.Id }) |
+        @Html.ActionLink("Edit", "EditProduct", new { id = p.Id }) |
 
-        @Html.ActionLink("Delete", "Delete", new { id = p.Id })
+        @Html.ActionLink("Delete", "Delete", new {   })
 
+        <!-- 
+        <div class="delete-section">
+            <a class="delete-link" href="@Url.Action("Delete", new {id = p.Id})">Dellete</a>
+            <div class="btn btn-primary delete-confirm" style="display:none" data-delete-id="@p.Id">Confirm Delete</div>
+        </div>
+        -->
+                
     </div>
     <br />
-
-
 }
+
 
